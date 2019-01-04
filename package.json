@@ -1,0 +1,28 @@
+{
+  "name": "musically-ionic",
+  "private": true,
+  "version": "0.0.1",
+  "description": "musically-ionic",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve --no-open",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watch"
+  },
+  "dependencies": {
+    "@capacitor/android": "^1.0.0-beta.13",
+    "@capacitor/cli": "^1.0.0-beta.13",
+    "@capacitor/core": "^1.0.0-beta.13",
+    "@ionic/core": "4.0.0-rc.0",
+    "idb-keyval": "^3.1.0",
+    "msal": "^0.2.3"
+  },
+  "devDependencies": {
+    "@stencil/core": "0.16.1",
+    "workbox-build": "3.4.1"
+  }
+}

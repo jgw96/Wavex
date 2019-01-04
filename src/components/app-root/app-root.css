@@ -1,0 +1,159 @@
+footer {
+  position: fixed;
+  bottom: -2px;
+  width: 100%;
+  display: flex;
+  background: #549ee7;
+  height: 8em;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  animation-name: slideup;
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(.55,0,.1,1);
+}
+
+#playCloseButton {
+  color: white;
+  font-size: 1em;
+  position: absolute;
+  top: 4px;
+  left: 0;
+}
+
+#buttonBlock ion-button ion-icon {
+  color: white;
+}
+
+footer #buttonBlock {
+  width: 60%;
+  justify-content: space-between;
+  flex-direction: row;
+  display: flex;
+}
+
+#infoBlock {
+  width: 50%;
+  padding: 12px;
+}
+
+#infoBlock p {
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+footer button {
+  background: transparent;
+  border: none;
+  outline-color: #215f77;
+}
+
+#expandedInfo {
+  display: none;
+}
+
+#expandedInfo p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#mobileInfo {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 1.2em;
+  height: 33px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+
+#mobileInfo h3 {
+  margin-bottom: 0;
+  margin-top: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  animation-name: fadein;
+  animation-duration: 300ms;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+#desktopShareButton {
+  color: white;
+  position: absolute;
+  top: 4px;
+  right: 0;
+}
+
+#playCloseButton ion-icon {
+  margin-top: 2px;
+}
+
+#headerBlock {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideup {
+  from {
+    opacity: 0;
+    transform: translateY(300px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+@media(min-width: 1200px) {
+  footer {
+    position: fixed;
+    bottom: initial;
+    top: 3.5em;
+    width: 230px;
+    height: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  #infoBlock {
+    width: initial;
+    text-align: center;
+  }
+
+  #expandedInfo {
+    display: block;
+    padding: 20px;
+    color: white;
+    text-align: left;
+    margin-top: 1.6em;
+  }
+
+  #mobileInfo {
+    display: none;
+  }
+
+  footer #buttonBlock {
+    padding-left: 11px;
+    padding-right: 15px;
+    width: 90%;
+  }
+}

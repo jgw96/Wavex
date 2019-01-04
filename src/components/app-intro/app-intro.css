@@ -1,0 +1,41 @@
+.swiper-slide {
+  display: block;
+}
+
+.slide-title {
+  margin-top: 2.8rem;
+}
+
+ion-slides ion-slide .slide-image {
+  margin-top: 2em;
+  max-height: 50%;
+  max-width: 80%;
+  margin: 36px 0;
+}
+
+ion-slides {
+  height: 100vh;
+}
+
+ion-slides ion-slide p {
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: white;
+  font-weight: normal;
+  margin-top: 2em;
+  text-align: center;
+}
+
+#startedButton {
+  margin-left: 4em;
+  margin-right: 4em;
+  margin-top: 2em;
+}
+
+@media (min-width: 1200px) {
+  ion-slides ion-slide p {
+    margin-left: 20em;
+    margin-right: 20em;
+  }
+}

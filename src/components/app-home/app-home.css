@@ -1,0 +1,64 @@
+.optionsIcon {
+  font-size: 1.6em;
+  width: 1.4em;
+}
+
+#savedTracksDiv {
+  animation-name: expandIn;
+  animation-duration: 300ms;
+  transform-origin: top;
+}
+
+#dropdownArrow {
+  transform-origin: center;
+  transform: rotate(90deg) translateX(-3px);
+}
+
+#searchToolbar {
+  transform-origin: top;
+  animation-name: expandIn;
+  animation-duration: 300ms;
+}
+
+#desktopSavedListDiv {
+  display: none;
+}
+
+@keyframes expandIn {
+  from {
+    opacity: 0;
+    transform: scaleY(0)
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@media (min-width: 1200px) {
+  #container {
+    margin-left: 16em;
+  }
+
+  #savedTracksDiv {
+    display: none;
+  }
+
+  #savedTracksDesktopDiv {
+    animation-name: expandIn;
+    animation-duration: 300ms;
+    transform-origin: top;
+  }
+
+  #savedHeader {
+    display: none;
+  }
+
+  #desktopSavedListDiv {
+    display: block;
+  }
+
+  #searchToolbar {
+    padding-left: 16em;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "appId": "com.wavex.app",
+  "appName": "wavex",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}
