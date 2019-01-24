@@ -38,7 +38,7 @@ export class AppProfile {
           <ion-label>Setting ({this.state.toString()})</ion-label>
           <ion-toggle
             checked={this.state}
-            onIonChange={ev => (this.state = ev.detail.checked)}
+            onIonChange={(ev: any) => this.state = ev.detail.checked}
           />
         </ion-item>
       </ion-content>

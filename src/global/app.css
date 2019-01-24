@@ -137,7 +137,7 @@
   --ion-item-background-activated: #232b34;
 
   /* Background, Text, Step Colors */
-  --ion-background-color: #343d46;
+   --ion-background-color: #343d46; 
   --ion-background-color-rgb: 27,43,52;
 
   --ion-text-color: #fff;

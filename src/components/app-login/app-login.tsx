@@ -16,7 +16,7 @@ export class AppLogin {
   @State() loggedIn: boolean = false;
   @State() profilePhoto: string | null = null;
 
-  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement | null = null;
+  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
 
   userAgentApplication: any = new UserAgentApplication(config.appId, null, () => this.tokenCallback(), {
     redirectUri: config.redirectURI

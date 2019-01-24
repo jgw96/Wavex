@@ -11,7 +11,7 @@ const { Haptics } = Plugins;
 export class AppIntro {
 
   @Prop({ connect: 'ion-nav' })
-  nav: HTMLIonNavElement | null = null;
+  nav: any | null = null;
 
 
   async getStarted() {
@@ -21,7 +21,7 @@ export class AppIntro {
       })
     }
     
-    const nav: HTMLIonNavElement = await (this.nav as any).componentOnReady();
+    const nav: any = await (this.nav as any).componentOnReady();
     nav.setRoot('app-home', null, { animated: true, direction: 'forward' });
     localStorage.setItem('seen', 'true');
   }

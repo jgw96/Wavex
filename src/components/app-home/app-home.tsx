@@ -14,7 +14,7 @@ export class AppHome {
   @State() searched: boolean = false;
   @State() searching: boolean = false;
 
-  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement | null = null;
+  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
 
   @Element() el: HTMLElement | null = null;
 
@@ -162,7 +162,7 @@ export class AppHome {
         </ion-toolbar>
 
         {this.searching ? <ion-toolbar id='searchToolbar' color='primary'>
-          <ion-searchbar mode='ios' onIonChange={(ev) => this.search(ev.detail.value || '')} debounce={300}></ion-searchbar>
+          <ion-searchbar mode='ios' onIonChange={(ev: any) => this.search(ev.detail.value || '')} debounce={300}></ion-searchbar>
         </ion-toolbar> : null}
       </ion-header>,
 
@@ -176,7 +176,7 @@ export class AppHome {
                 </ion-label>
 
                 <ion-button fill='clear' onClick={() => this.toggleSaved()}>
-                  <ion-icon ref={(el) => this.dropdownArrow = el as HTMLDivElement} id='dropdownArrow' name='arrow-dropdown'></ion-icon>
+                  <ion-icon ref={(el: any) => this.dropdownArrow = el as HTMLDivElement} id='dropdownArrow' name='arrow-dropdown'></ion-icon>
                 </ion-button>
               </ion-list-header>
               {this.savedTracks ? <div id='savedTracksDesktopDiv'>
@@ -217,7 +217,7 @@ export class AppHome {
             </ion-label>
 
                 <ion-button fill='clear'>
-                  <ion-icon ref={(el) => this.dropdownArrow = el as HTMLDivElement} id='dropdownArrow' name='arrow-dropdown'></ion-icon>
+                  <ion-icon ref={(el: any) => this.dropdownArrow = el as HTMLDivElement} id='dropdownArrow' name='arrow-dropdown'></ion-icon>
                 </ion-button>
               </ion-list-header>
               {this.savedTracks ? <div id='savedTracksDiv'>

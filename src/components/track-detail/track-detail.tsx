@@ -15,12 +15,12 @@ const { Haptics, Share } = Plugins;
 })
 export class TrackDetail {
 
-  fab: HTMLIonFabElement | null = null;
+  fab: any = null;
 
   @Element() el: HTMLElement | null = null;
 
   @Prop() id: string = '';
-  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement | null = null;
+  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
 
   @State() track: any | null = null;
   @State() token: string | null = sessionStorage.getItem('token');

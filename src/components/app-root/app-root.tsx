@@ -17,7 +17,7 @@ const { Haptics } = Plugins;
 })
 export class AppRoot {
 
-  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement | null = null;
+  @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
 
   @State() musicSrc: string = '';
   @State() musicTitle: string | null = null;
@@ -419,7 +419,7 @@ export class AppRoot {
               <ion-icon name='skip-forward'></ion-icon>
             </ion-button>
 
-            <ion-button fill='clear' ref={(el) => this.saveButtonEl = el as HTMLButtonElement} aria-label='Sharing button' id='desktopShareButton' onClick={() => this.save()}>
+            <ion-button fill='clear' ref={(el: any) => this.saveButtonEl = el as HTMLButtonElement} aria-label='Sharing button' id='desktopShareButton' onClick={() => this.save()}>
               <ion-icon name='star-outline'></ion-icon>
             </ion-button>
           </div>
