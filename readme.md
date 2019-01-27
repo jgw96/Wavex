@@ -4,7 +4,7 @@ Warning: Still a WIP (even this readme).
 ## Try it out here:
 
 - PWA (recommended version, can be used from any device with a web browser): https://wavex-app.firebaseapp.com
-- Native Android: (Google Play link here)
+- Native Android: https://play.google.com/store/apps/details?id=com.wavex.app&hl=en
 - Windows 10: (Microsoft Store link here)
 - Windows 7, 8, MacOS: (possible electron version here)
 
