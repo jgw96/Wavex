@@ -342,9 +342,9 @@ export class AppRoot {
       }
     }
     else {
-      await saveSong(track)
+      const saveVar = await saveSong(track)
 
-      if (this.toastCtrl) {
+      if (this.toastCtrl && saveVar === true) {
         const toast = await this.toastCtrl.create({
           message: 'Song saved',
           showCloseButton: true,
