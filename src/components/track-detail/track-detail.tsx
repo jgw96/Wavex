@@ -217,13 +217,20 @@ export class TrackDetail {
       <ion-content padding>
         <div id='containDiv'>
           <section id='header'>
-            <div id='albumArt'>
-              {this.track ? <img src={this.track.artwork_url} alt={`${this.track.title} album art`}></img> : <div id='fakeImg'></div>}
-            </div>
 
             <div id='headerContent'>
-              {this.track ? <h1 id='realH1' key={1}>{this.track.title}</h1> : <h1 key={0}>Loading...</h1>}
-              <p id='by'>Posted by {this.track ? this.track.user.username : 'loading...'}</p>
+              <div id='albumArt'>
+                {this.track ? <img src={this.track.artwork_url} alt={`${this.track.title} album art`}></img> : <div id='fakeImg'></div>}
+              </div>
+
+              <div id='headerTrackDetail'>
+                {this.track ? <h1 id='realH1' key={1}>{this.track.title}</h1> : <h1 key={0}>Loading...</h1>}
+                <p id='by'>Posted by {this.track ? this.track.user.username : 'loading...'}</p>
+              </div>
+            </div>
+
+            <div id='extraContent'>
+              <p>{this.track ? this.track.description : 'loading...'}</p>
             </div>
           </section>
 

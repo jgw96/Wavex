@@ -4,6 +4,10 @@
   margin-top: 2em;
 }
 
+#extraContent p {
+  margin-top: 2em;
+}
+
 #albumArt img {
   height: 10em;
   width: 10em;
@@ -18,18 +22,19 @@
   width: 10em;
   background: grey;
   border-radius: 5px;
+  margin-right: 10px;
 }
 
 #header {
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
 }
 
 #header #headerContent {
   display: flex;
-  flex-direction: column;
   justify-content: flex-end;
-  width: 12em;
+  width: 36em;
 }
 
 h1 {
@@ -127,6 +132,58 @@ h1 {
     margin-left: 34em;
     margin-right: 19em;
   }
+}
+
+@media(max-width: 1200px) {
+  header {
+    flex-direction: column;
+  }
+
+  #headerContent {
+    flex-direction: column;
+    width: initial;
+  }
+
+  #albumArt {
+    display: initial !important;
+  }
+
+  #albumArt img {
+    height: 14em;
+    width: 14em;
+  }
+
+  #fakeImg {
+    height: 14em;
+    width: 14em;
+  }
+
+  #headerTrackDetail {
+    margin-left: initial !important;
+    margin-top: 1em !important;
+  }
+
+  #headerTrackDetail h1 {
+    width: 12em;
+  }
+
+  #actions {
+    margin-top: 2em !important;
+  }
+}
+
+#headerTrackDetail {
+  padding-right: 8em;
+  margin-top: 4.7em;
+  margin-left: 1em;
+}
+
+#headerTrackDetail h1 {
+  font-weight: bold;
+}
+
+#headerTrackDetail p {
+  font-weight: bold;
 }
 
 @keyframes fadein {

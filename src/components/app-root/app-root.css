@@ -3,7 +3,7 @@ footer {
   bottom: -2px;
   width: 100%;
   display: flex;
-  background: #549ee7;
+  background: var(--ion-color-primary);
   height: 8em;
   justify-content: space-evenly;
   align-items: center;

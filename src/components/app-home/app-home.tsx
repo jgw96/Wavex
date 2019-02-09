@@ -28,6 +28,20 @@ export class AppHome {
 
     if (window.matchMedia("(min-width: 1200px)").matches) {
       this.savedTracks = await getSaved();
+
+      if (this.dropdownArrow) {
+        this.dropdownArrow.animate(([
+          {
+            transform: 'rotate(0deg) translateX(0px)'
+          },
+          {
+            transform: 'rotate(90deg) translateX(-3px)'
+          }
+        ] as any), {
+            duration: 150,
+            fill: 'forwards'
+          })
+      }
     }
   }
 
