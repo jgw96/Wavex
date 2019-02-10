@@ -207,6 +207,8 @@ export class AppRoot {
     console.log(track);
     this.musicSrc = track.stream_url;
     this.musicTitle = track.title;
+    this.desc = track.description;
+    this.genre = track.genre;
 
     if (this.audioEl) {
       this.audioEl.oncanplay = async () => {
