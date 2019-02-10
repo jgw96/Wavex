@@ -21,6 +21,7 @@ export class TrackDetail {
 
   @Prop() id: string = '';
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
+  @Prop({ connect: 'ion-action-sheet-controller' }) actionSheetCtrl: any | null = null;
 
   @State() track: any | null = null;
   @State() token: string | null = sessionStorage.getItem('token');
@@ -203,6 +204,35 @@ export class TrackDetail {
     }
   }
 
+  async openWindows() {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: "Windows 10",
+      buttons: [{
+        text: 'Listen on your Windows 10 device',
+        icon: 'logo-windows',
+        handler: () => {
+          this.listenOnWindows()
+        }
+      },
+      {
+        text: 'Listen later',
+        icon: 'time',
+        handler: () => {
+          this.listenLater()
+        }
+      },
+      {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
+  }
+
   render() {
     return [
       <ion-header>
@@ -220,7 +250,7 @@ export class TrackDetail {
 
             <div id='headerContent'>
               <div id='albumArt'>
-                {this.track ? <img src={this.track.artwork_url} alt={`${this.track.title} album art`}></img> : <div id='fakeImg'></div>}
+                {this.track && this.track.artwork_url ? <img src={this.track.artwork_url} alt={`${this.track.title} album art`}></img> : <div id='fakeImg'></div>}
               </div>
 
               <div id='headerTrackDetail'>
@@ -241,17 +271,9 @@ export class TrackDetail {
         </div>
 
         {this.token ? <ion-fab id="socialFab" vertical="bottom" horizontal="end" slot="fixed">
-          <ion-fab-button onClick={() => this.toggleList()}>
+          <ion-fab-button color="secondary" onClick={() => this.openWindows()}>
             <ion-icon name="logo-windows"></ion-icon>
           </ion-fab-button>
-          <ion-fab-list side="top">
-            <ion-fab-button color="primary" onClick={() => this.listenOnWindows()}>
-              <ion-icon name="laptop"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button color="secondary" onClick={() => this.listenLater()}>
-              <ion-icon name="time"></ion-icon>
-            </ion-fab-button>
-          </ion-fab-list>
         </ion-fab> : null}
 
         {

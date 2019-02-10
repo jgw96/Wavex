@@ -17,9 +17,12 @@ export class AppLogin {
   @State() profilePhoto: string | null = null;
 
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
+  @Prop({ connect: 'ion-action-sheet-controller' }) actionSheetCtrl: any | null = null;
 
   userAgentApplication: any = new UserAgentApplication(config.appId, null, () => this.tokenCallback(), {
-    redirectUri: config.redirectURI
+    redirectUri: config.redirectURI,
+    storeAuthStateInCookie: true,
+    cacheLocation: "localStorage"
   });
   token: string | null = null;
 
@@ -37,12 +40,14 @@ export class AppLogin {
   }
 
   tokenCallback() {
-
+    if (this.token) {
+      console.log(this.token);
+    }
   }
 
   async login() {
     try {
-      await this.userAgentApplication.loginPopup(config.scopes);
+      await this.userAgentApplication.loginRedirect(config.scopes);
       await this.getUserProfile();
     }
     catch (err) {
@@ -60,7 +65,7 @@ export class AppLogin {
 
       if (!this.token) {
         this.token = await this.userAgentApplication.acquireTokenSilent(config.scopes);
-        
+
         if (this.token) {
           sessionStorage.setItem('token', this.token);
         }
@@ -95,10 +100,35 @@ export class AppLogin {
     }
   }
 
+  async logout() {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: "Profile",
+      buttons: [{
+        text: 'Logout',
+        icon: 'person',
+        handler: () => {
+          console.log('logout clicked');
+          this.userAgentApplication.logout();
+          this.user = null;
+          this.profilePhoto = null;
+          sessionStorage.removeItem('token');
+        }
+      }, {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
+  }
+
   render() {
     return (
       <div>
-        {this.profilePhoto ? <img  id='profilePhoto' alt='user photo' src={this.profilePhoto ? this.profilePhoto : undefined}></img> : null}
+        {this.profilePhoto ? <div onClick={() => this.logout()}><img id='profilePhoto' alt='user photo' src={this.profilePhoto ? this.profilePhoto : undefined}></img></div> : null}
         {!this.profilePhoto ? <ion-button fill='clear' onClick={() => this.login()}>Login</ion-button> : null}
       </div>
     );

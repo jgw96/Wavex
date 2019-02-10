@@ -44,6 +44,7 @@ h1 {
 #realH1 {
   animation-name: fadein;
   animation-duration: 400ms;
+  width: 10em;
 }
 
 #by {
@@ -53,6 +54,7 @@ h1 {
 
 #actions {
   margin-top: 4em;
+  margin-bottom: 8em;
 }
 
 #devicesDiv {

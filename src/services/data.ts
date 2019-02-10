@@ -3,13 +3,13 @@ import { get, set } from 'idb-keyval';
 const dbName = 'musically_saved_tracks';
 
 export async function saveSong(song: any): Promise<boolean> {
-  const savedSongs = (await get(dbName) as Set<any>);
+  const savedSongs = (await get(dbName) as Array<any>);
 
   if (savedSongs) {
     console.log(checkSongs(savedSongs, song));
 
     if (checkSongs(savedSongs, song) === undefined) {
-      savedSongs.add(song);
+      savedSongs.push(song);
       await set(dbName, savedSongs);
       return true;
     } else {
@@ -18,24 +18,22 @@ export async function saveSong(song: any): Promise<boolean> {
   }
   else {
     console.log(song);
-    await set(dbName, new Set([song]));
+    await set(dbName, [song]);
     return true;
   }
 }
 
 export async function getSaved() {
-  const savedSongs = (await get(dbName) as Set<any>);
+  const savedSongs = (await get(dbName) as Array<any>);
 
-  const fixedSongs = [...savedSongs];
-
-  if (fixedSongs) {
-    return await fixedSongs;
+  if (savedSongs) {
+    return savedSongs;
   } else {
     return [];
   }
 }
 
-function checkSongs(songs: Set<any>, song: any) {
+function checkSongs(songs: Array<any>, song: any) {
   const songsArray = [...songs];
 
   for (let i = 0; i < songsArray.length; i++) {
