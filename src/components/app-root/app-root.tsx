@@ -106,7 +106,7 @@ export class AppRoot {
         style: HapticsImpactStyle.Light
       })
     }
-    
+
     this.playing = true;
 
     await this.doWakeLock();
@@ -173,7 +173,7 @@ export class AppRoot {
 
   async homePlay() {
     if (this.musicSrc) {
-      
+
       if (Haptics) {
         Haptics.impact({
           style: HapticsImpactStyle.Light
@@ -183,7 +183,7 @@ export class AppRoot {
       this.playing = true;
       if (this.audioEl) {
         await this.audioEl.play();
-        
+
         if ((window as any).Windows) {
           this.systemMediaControls.playbackStatus = (window as any).Windows.Media.MediaPlaybackStatus.playing;
         }
@@ -205,10 +205,17 @@ export class AppRoot {
     console.log(this.genre);
     const track = await getSingleTrack(this.genre ? this.genre : '');
     console.log(track);
-    this.musicSrc = track.stream_url;
+    /*this.musicSrc = track.stream_url;
     this.musicTitle = track.title;
     this.desc = track.description;
+    this.genre = track.genre;*/
+
+    this.currentTrack = track;
+    this.musicSrc = track.stream_url;
+    this.musicTitle = track.title;
     this.genre = track.genre;
+    this.likes = track.likes_count;
+    this.desc = track.description;
 
     if (this.audioEl) {
       this.audioEl.oncanplay = async () => {
@@ -271,7 +278,7 @@ export class AppRoot {
     if ('mediaSession' in navigator) {
       console.log('in media session', track);
       (navigator as any).mediaSession.metadata = new MediaMetadata({
-        title:track.title ? track.title : '',
+        title: track.title ? track.title : '',
         artist: track.user.username ? track.user.username : ''
       });
 
