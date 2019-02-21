@@ -128,6 +128,7 @@ export class AppLogin {
   render() {
     return (
       <div>
+
         {this.profilePhoto ? <div onClick={() => this.logout()}><img id='profilePhoto' alt='user photo' src={this.profilePhoto ? this.profilePhoto : undefined}></img></div> : null}
         {!this.profilePhoto ? <ion-button fill='clear' onClick={() => this.login()}>Login</ion-button> : null}
       </div>

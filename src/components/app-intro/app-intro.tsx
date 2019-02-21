@@ -22,7 +22,7 @@ export class AppIntro {
     }
     
     const nav: any = await (this.nav as any).componentOnReady();
-    nav.setRoot('app-home', null, { animated: true, direction: 'forward' });
+    nav.setRoot('app-home', null, { animated: false, direction: 'forward' });
     localStorage.setItem('seen', 'true');
   }
 

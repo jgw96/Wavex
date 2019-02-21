@@ -1,7 +1,7 @@
 #albumArt {
-  display: flex;
   justify-content: center;
   margin-top: 2em;
+  display: initial !important;
 }
 
 #extraContent p {
@@ -9,8 +9,8 @@
 }
 
 #albumArt img {
-  height: 10em;
-  width: 10em;
+  height: 14em;
+  width: 14em;
   border-radius: 5px;
   animation-name: fadein;
   animation-duration: 400ms;
@@ -18,8 +18,8 @@
 }
 
 #fakeImg {
-  height: 10em;
-  width: 10em;
+  height: 14em;
+  width: 14em;
   background: grey;
   border-radius: 5px;
   margin-right: 10px;
@@ -34,7 +34,8 @@
 #header #headerContent {
   display: flex;
   justify-content: flex-end;
-  width: 36em;
+  width: initial;
+  flex-direction: column;
 }
 
 h1 {
@@ -54,7 +55,8 @@ h1 {
 
 #actions {
   margin-top: 4em;
-  margin-bottom: 8em;
+  display: flex;
+  align-items: center;
 }
 
 #devicesDiv {
@@ -96,10 +98,6 @@ h1 {
 #actions button#windowsButton {
   margin-top: 2em;
   color: royalblue !important;
-}
-
-#shareButton {
-  margin-top: 10px;
 }
 
 #windowsActionsBlock {
@@ -170,18 +168,27 @@ h1 {
   }
 
   #actions {
-    margin-top: 2em !important;
+    margin-top: 1em !important;
   }
 }
 
 #headerTrackDetail {
   padding-right: 8em;
-  margin-top: 4.7em;
-  margin-left: 1em;
+  margin-left: initial !important;
+  margin-top: 1em !important;
 }
 
 #headerTrackDetail h1 {
+  width: 12em;
   font-weight: bold;
+}
+
+#actions {
+  margin-top: 1em !important;
+}
+
+#actions #playButton {
+  margin-right: 1em;
 }
 
 #headerTrackDetail p {

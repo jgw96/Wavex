@@ -253,20 +253,26 @@ export class TrackDetail {
                 {this.track && this.track.artwork_url ? <img src={this.track.artwork_url} alt={`${this.track.title} album art`}></img> : <div id='fakeImg'></div>}
               </div>
 
+              <section id='actions'>
+                <ion-button onClick={() => this.playTrack()} shape='round' id='playButton'>
+                  <ion-icon slot="start" name="play"></ion-icon>
+                  Play
+            </ion-button>
+                <ion-button color='secondary' shape='round' id='shareButton' onClick={() => this.share()}>
+                  <ion-icon slot="start" name="share"></ion-icon>
+                  Share
+            </ion-button>
+              </section>
+
               <div id='headerTrackDetail'>
                 {this.track ? <h1 id='realH1' key={1}>{this.track.title}</h1> : <h1 key={0}>Loading...</h1>}
-                <p id='by'>Posted by {this.track ? this.track.user.username : 'loading...'}</p>
+                <p id='by'>Posted by {this.track && this.track.user ? this.track.user.username : 'loading...'}</p>
               </div>
             </div>
 
             <div id='extraContent'>
               <p>{this.track ? this.track.description : 'loading...'}</p>
             </div>
-          </section>
-
-          <section id='actions'>
-            <ion-button onClick={() => this.playTrack()} expand='block' shape='round' id='playButton'>Play</ion-button>
-            <ion-button color='secondary' shape='round' expand='block' id='shareButton' onClick={() => this.share()}>Share</ion-button>
           </section>
         </div>
 

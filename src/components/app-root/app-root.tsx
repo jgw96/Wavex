@@ -68,11 +68,11 @@ export class AppRoot {
   componentDidLoad() {
     if ((window as any).Windows && (window as any).Windows.UI.ViewManagement.ApplicationView) {
       const titleBar = (window as any).Windows.UI.ViewManagement.ApplicationView.getForCurrentView().titleBar;
-      titleBar.backgroundColor = { a: 255, r: 84, g: 158, b: 231 };
+      titleBar.backgroundColor = { a: 255, r: 32, g: 44, b: 56 };
       titleBar.foregroundColor = { a: 255, r: 255, g: 255, b: 255 };
-      titleBar.inactiveBackgroundColor = { a: 255, r: 84, g: 158, b: 231 };
-      titleBar.inactiveForegroundColor = { a: 255, r: 84, g: 158, b: 231 };
-      titleBar.buttonBackgroundColor = { a: 255, r: 84, g: 158, b: 231 };
+      titleBar.inactiveBackgroundColor = { a: 255, r: 32, g: 44, b: 56 };
+      titleBar.inactiveForegroundColor = { a: 255, r: 32, g: 44, b: 56 };
+      titleBar.buttonBackgroundColor = { a: 255, r: 32, g: 44, b: 56 };
     }
 
     if (window.matchMedia("(min-width: 1200px)").matches && this.hasSeenTutorial === true) {
@@ -271,8 +271,8 @@ export class AppRoot {
     if ('mediaSession' in navigator) {
       console.log('in media session', track);
       (navigator as any).mediaSession.metadata = new MediaMetadata({
-        title: track.title,
-        artist: track.user.username
+        title:track.title ? track.title : '',
+        artist: track.user.username ? track.user.username : ''
       });
 
       (navigator as any).mediaSession.setActionHandler('play', () => this.homePlay());
