@@ -198,23 +198,26 @@ export class AppHome {
                   this.savedTracks.map((track) => {
                     if (track.genre && track.genre.length > 0) {
                       return (
-                        <ion-item-sliding>
-                          <ion-item href={`/track/${track.id}`}>
-                            <ion-thumbnail slot="start">
-                              <ion-img src={track.artwork_url ? track.artwork_url : '/assets/music_icon.svg'} alt={`${track.title} album artwork`}></ion-img>
-                            </ion-thumbnail>
-                            <ion-label>
-                              <h2>{track.title}</h2>
-                              <p>{track.description || 'No Description'}</p>
-                            </ion-label>
-                          </ion-item>
+                        /*<ion-item href={`/track/${track.id}`}>
+                          <ion-thumbnail slot="start">
+                            <ion-img src={track.artwork_url ? track.artwork_url : '/assets/music_icon.svg'} alt={`${track.title} album artwork`}></ion-img>
+                          </ion-thumbnail>
+                          <ion-label>
+                            <h2>{track.title}</h2>
+                            <p>{track.description || 'No Description'}</p>
+                          </ion-label>
+                        </ion-item>*/
+                        <ion-card color='primary'>
+                          <ion-card-header color='primary'>
+                            <ion-card-subtitle>{track.user && track.user.username ? track.user.username : 'Not available'}</ion-card-subtitle>
+                            <ion-card-title>{track.title}</ion-card-title>
+                          </ion-card-header>
 
-                          <ion-item-options side='end'>
-                            <ion-item-option onClick={() => this.playTrack(track)} color='primary'>
-                              <ion-icon class='optionsIcon' name='play'></ion-icon>
-                            </ion-item-option>
-                          </ion-item-options>
-                        </ion-item-sliding>
+                          <ion-card-content color='primary'>
+                            Keep close to Nature's heart... and break clear away, once in awhile,
+                            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                          </ion-card-content>
+                        </ion-card>
                       )
                     }
                   })

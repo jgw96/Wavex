@@ -48,6 +48,7 @@
     animation-name: expandIn;
     animation-duration: 300ms;
     transform-origin: top;
+    display: flex;
   }
 
   #savedHeader {
