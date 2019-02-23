@@ -96,6 +96,12 @@ footer button {
   right: 0;
 }
 
+@media (max-width: 1200px) {
+  #desktopShareButton {
+    top: 4px;
+  }
+}
+
 #playCloseButton ion-icon {
   margin-top: 2px;
 }
