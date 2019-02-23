@@ -19,7 +19,7 @@ export class AppProfile {
 
   render() {
     return [
-      <ion-header>
+      <ion-header no-border>
         <ion-toolbar color="primary">
           <ion-buttons slot="start">
             <ion-back-button defaultHref="/" />

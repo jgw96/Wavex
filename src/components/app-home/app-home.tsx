@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, Prop, State } from '@stencil/core';
 
 import { getTracks, searchTracks } from '../../services/api';
-import { getSaved } from '../../services/data';
+import { getSaved, deleteSong } from '../../services/data';
 
 @Component({
   tag: 'app-home',
@@ -70,6 +70,15 @@ export class AppHome {
         this.savedTracks = await getSaved();
       }, 400);
     }
+  }
+
+  async remove(track: any) {
+    console.log('removing');
+    await deleteSong(track);
+
+    setTimeout(async () => {
+      this.savedTracks = await getSaved();
+    }, 400);
   }
 
   async toggleSaved() {
@@ -162,7 +171,7 @@ export class AppHome {
 
   render() {
     return [
-      <ion-header>
+      <ion-header no-border>
         <ion-toolbar color="primary">
           <ion-title>wavex</ion-title>
 
@@ -184,7 +193,7 @@ export class AppHome {
         <main id='container'>
           <div id='desktopSavedListDiv'>
             <ion-list id='desktopSavedList'>
-              <ion-list-header id='savedDesktopHeader'>
+              <ion-list-header id='savedDesktopHeader' onClick={() => this.toggleSaved()}>
                 <ion-label>
                   Favorites
                 </ion-label>
@@ -208,15 +217,20 @@ export class AppHome {
                           </ion-label>
                         </ion-item>*/
                         <ion-card color='primary'>
+                          <img src={track.artwork_url ? track.artwork_url : '/assets/music_icon.svg'} alt={`${track.title} album artwork`}></img>
                           <ion-card-header color='primary'>
                             <ion-card-subtitle>{track.user && track.user.username ? track.user.username : 'Not available'}</ion-card-subtitle>
                             <ion-card-title>{track.title}</ion-card-title>
                           </ion-card-header>
 
                           <ion-card-content color='primary'>
-                            Keep close to Nature's heart... and break clear away, once in awhile,
-                            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                            <span>{track.description || 'No Description'}</span>
                           </ion-card-content>
+
+                          <ion-buttons>
+                            <ion-button id='removeButton' fill='outline' shape='round' color='danger' onClick={() => this.remove(track)}>Remove</ion-button>
+                            <ion-button fill='outline' shape='round' onClick={() => this.playTrack(track)}>Play</ion-button>
+                          </ion-buttons>
                         </ion-card>
                       )
                     }
@@ -231,7 +245,7 @@ export class AppHome {
               <ion-list-header id='savedHeader' onClick={() => this.toggleSaved()}>
                 <ion-label>
                   Favorites
-            </ion-label>
+                </ion-label>
 
                 <ion-button fill='clear'>
                   <ion-icon ref={(el: any) => this.dropdownArrow = el as HTMLDivElement} id='dropdownArrow' name='arrow-dropdown'></ion-icon>
@@ -256,6 +270,9 @@ export class AppHome {
                           <ion-item-options side='end'>
                             <ion-item-option onClick={() => this.playTrack(track)} color='primary'>
                               <ion-icon class='optionsIcon' name='play'></ion-icon>
+                            </ion-item-option>
+                            <ion-item-option onClick={() => this.remove(track)} color='danger'>
+                              <ion-icon class='optionsIcon' name='trash'></ion-icon>
                             </ion-item-option>
                           </ion-item-options>
                         </ion-item-sliding>

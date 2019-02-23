@@ -189,7 +189,6 @@ export class AppRoot {
         }
       }
     } else {
-      console.log('do something');
       this.playing = true;
       await this.next();
     }
@@ -204,11 +203,6 @@ export class AppRoot {
 
     console.log(this.genre);
     const track = await getSingleTrack(this.genre ? this.genre : '');
-    console.log(track);
-    /*this.musicSrc = track.stream_url;
-    this.musicTitle = track.title;
-    this.desc = track.description;
-    this.genre = track.genre;*/
 
     this.currentTrack = track;
     this.musicSrc = track.stream_url;

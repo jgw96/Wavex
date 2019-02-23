@@ -23,6 +23,21 @@ export async function saveSong(song: any): Promise<boolean> {
   }
 }
 
+export async function deleteSong(song: any) {
+  const savedSongs = (await get(dbName) as Array<any>);
+  const filteredItems = savedSongs.filter(item => {
+    if (item.id === song.id) {
+      console.log('removed');
+    }
+
+    return item.id !== song.id;
+  });
+
+  console.log(filteredItems);
+
+  await set(dbName, filteredItems);
+}
+
 export async function getSaved() {
   const savedSongs = (await get(dbName) as Array<any>);
 

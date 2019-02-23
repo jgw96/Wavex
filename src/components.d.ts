@@ -35,6 +35,14 @@ export namespace Components {
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
 
+  interface PopoverPage {
+    'userAgent': any;
+  }
+  interface PopoverPageAttributes extends StencilHTMLAttributes {
+    'onLoggedOut'?: (event: CustomEvent) => void;
+    'userAgent'?: any;
+  }
+
   interface TrackDetail {
     'id': string;
   }
@@ -51,6 +59,7 @@ declare global {
     'AppLogin': Components.AppLogin;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
+    'PopoverPage': Components.PopoverPage;
     'TrackDetail': Components.TrackDetail;
   }
 
@@ -60,6 +69,7 @@ declare global {
     'app-login': Components.AppLoginAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
+    'popover-page': Components.PopoverPageAttributes;
     'track-detail': Components.TrackDetailAttributes;
   }
 
@@ -94,6 +104,12 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLPopoverPageElement extends Components.PopoverPage, HTMLStencilElement {}
+  var HTMLPopoverPageElement: {
+    prototype: HTMLPopoverPageElement;
+    new (): HTMLPopoverPageElement;
+  };
+
   interface HTMLTrackDetailElement extends Components.TrackDetail, HTMLStencilElement {}
   var HTMLTrackDetailElement: {
     prototype: HTMLTrackDetailElement;
@@ -106,6 +122,7 @@ declare global {
     'app-login': HTMLAppLoginElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
+    'popover-page': HTMLPopoverPageElement
     'track-detail': HTMLTrackDetailElement
   }
 
@@ -115,6 +132,7 @@ declare global {
     'app-login': HTMLAppLoginElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'popover-page': HTMLPopoverPageElement;
     'track-detail': HTMLTrackDetailElement;
   }
 

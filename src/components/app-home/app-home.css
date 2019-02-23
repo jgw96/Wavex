@@ -24,6 +24,17 @@
   display: none;
 }
 
+ion-list-header ion-label {
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+#removeButton {
+  margin-right: 10px;
+}
+
 @keyframes expandIn {
   from {
     opacity: 0;
@@ -49,6 +60,37 @@
     animation-duration: 300ms;
     transform-origin: top;
     display: flex;
+    flex-wrap: wrap;
+  }
+
+  #savedTracksDesktopDiv ion-card {
+    width: 20em;
+    height: 29em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #savedTracksDesktopDiv ion-card ion-card-title {
+    height: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #savedTracksDesktopDiv ion-card img {
+    object-fit: cover;
+  }
+
+  #savedTracksDesktopDiv ion-card ion-card-content {
+    flex-grow: 1;
+    height: 2em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  #savedTracksDesktopDiv ion-buttons {
+    padding: 1em;
   }
 
   #savedHeader {

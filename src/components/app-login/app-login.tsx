@@ -17,7 +17,7 @@ export class AppLogin {
   @State() profilePhoto: string | null = null;
 
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
-  @Prop({ connect: 'ion-action-sheet-controller' }) actionSheetCtrl: any | null = null;
+  @Prop({ connect: 'ion-popover-controller' }) popoverCtrl: any | null = null;
 
   userAgentApplication: any = new UserAgentApplication(config.appId, null, () => this.tokenCallback(), {
     redirectUri: config.redirectURI,
@@ -100,8 +100,8 @@ export class AppLogin {
     }
   }
 
-  async logout() {
-    const actionSheet = await this.actionSheetCtrl.create({
+  async logout(ev: MouseEvent) {
+    /*const actionSheet = await this.actionSheetCtrl.create({
       header: "Profile",
       buttons: [{
         text: 'Logout',
@@ -122,15 +122,30 @@ export class AppLogin {
         }
       }]
     });
-    await actionSheet.present();
+    await actionSheet.present();*/
+
+    const popover = await this.popoverCtrl.create({
+      component: 'popover-page',
+      event: ev,
+      componentProps: { userAgent: this.userAgentApplication }
+    });
+    await popover.present();
+
+    popover.addEventListener('loggedOut', () => {
+      console.log('got event');
+      this.user = null;
+      this.profilePhoto = null;
+      sessionStorage.removeItem('token');
+    })
   }
 
   render() {
     return (
       <div>
-
-        {this.profilePhoto ? <div onClick={() => this.logout()}><img id='profilePhoto' alt='user photo' src={this.profilePhoto ? this.profilePhoto : undefined}></img></div> : null}
-        {!this.profilePhoto ? <ion-button fill='clear' onClick={() => this.login()}>Login</ion-button> : null}
+        {this.profilePhoto ? <div onClick={(ev) => this.logout(ev)}><img id='profilePhoto' alt='user photo' src={this.profilePhoto ? this.profilePhoto : undefined}></img></div> : null}
+        {!this.profilePhoto ? <ion-button fill='clear' onClick={() => this.login()}>
+          <ion-icon name='person'></ion-icon>
+        </ion-button> : null}
       </div>
     );
   }
