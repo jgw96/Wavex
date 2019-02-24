@@ -73,7 +73,6 @@ export class AppHome {
   }
 
   async remove(track: any) {
-    console.log('removing');
     await deleteSong(track);
 
     setTimeout(async () => {
@@ -102,8 +101,7 @@ export class AppHome {
     else {
       this.savedTracks = await getSaved();
 
-      if (this.savedTracks.length > 0) {
-        console.log('dropdown');
+      if (this.savedTracks && this.savedTracks.length > 0) {
         if (this.dropdownArrow) {
           this.dropdownArrow.animate(([
             {
@@ -132,7 +130,6 @@ export class AppHome {
               const child = element.firstElementChild;
 
               if (child) {
-                console.log('animating');
                 child.animate(([
                   {
                     transform: 'translate3d(0px, 0px, 0px)'
@@ -181,6 +178,7 @@ export class AppHome {
             </ion-button>
 
             <app-login></app-login>
+
           </ion-buttons>
         </ion-toolbar>
 

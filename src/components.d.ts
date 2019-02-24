@@ -19,6 +19,9 @@ export namespace Components {
     'onSaveEvent'?: (event: CustomEvent) => void;
   }
 
+  interface AppInstallButton {}
+  interface AppInstallButtonAttributes extends StencilHTMLAttributes {}
+
   interface AppIntro {}
   interface AppIntroAttributes extends StencilHTMLAttributes {}
 
@@ -55,6 +58,7 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'AppHome': Components.AppHome;
+    'AppInstallButton': Components.AppInstallButton;
     'AppIntro': Components.AppIntro;
     'AppLogin': Components.AppLogin;
     'AppProfile': Components.AppProfile;
@@ -65,6 +69,7 @@ declare global {
 
   interface StencilIntrinsicElements {
     'app-home': Components.AppHomeAttributes;
+    'app-install-button': Components.AppInstallButtonAttributes;
     'app-intro': Components.AppIntroAttributes;
     'app-login': Components.AppLoginAttributes;
     'app-profile': Components.AppProfileAttributes;
@@ -78,6 +83,12 @@ declare global {
   var HTMLAppHomeElement: {
     prototype: HTMLAppHomeElement;
     new (): HTMLAppHomeElement;
+  };
+
+  interface HTMLAppInstallButtonElement extends Components.AppInstallButton, HTMLStencilElement {}
+  var HTMLAppInstallButtonElement: {
+    prototype: HTMLAppInstallButtonElement;
+    new (): HTMLAppInstallButtonElement;
   };
 
   interface HTMLAppIntroElement extends Components.AppIntro, HTMLStencilElement {}
@@ -118,6 +129,7 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
+    'app-install-button': HTMLAppInstallButtonElement
     'app-intro': HTMLAppIntroElement
     'app-login': HTMLAppLoginElement
     'app-profile': HTMLAppProfileElement
@@ -128,6 +140,7 @@ declare global {
 
   interface ElementTagNameMap {
     'app-home': HTMLAppHomeElement;
+    'app-install-button': HTMLAppInstallButtonElement;
     'app-intro': HTMLAppIntroElement;
     'app-login': HTMLAppLoginElement;
     'app-profile': HTMLAppProfileElement;

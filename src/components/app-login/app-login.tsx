@@ -41,7 +41,7 @@ export class AppLogin {
 
   tokenCallback() {
     if (this.token) {
-      console.log(this.token);
+      console.log('got it');
     }
   }
 
@@ -72,11 +72,9 @@ export class AppLogin {
       }
 
       if (this.token) {
-        console.log(this.token);
         sessionStorage.setItem('token', this.token);
 
         const userData = await getUser(this.token);
-        console.log(userData);
         this.user = userData;
 
         const photoBinary = await getProfilePhoto(this.token);

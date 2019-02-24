@@ -96,7 +96,7 @@ footer button {
   right: 0;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
   #desktopShareButton {
     top: 4px;
   }
