@@ -128,6 +128,10 @@ export class AppRoot {
           if (this.audioEl) {
             await this.audioEl.play();
 
+            if ((window as any).ExperimentalBadge) {
+              (window as any).ExperimentalBadge.set();
+            }
+
             this.setUpListeners();
             this.setUpMeta(event.detail.track);
 
@@ -160,6 +164,11 @@ export class AppRoot {
 
     if (this.audioEl) {
       this.audioEl.pause();
+
+      if ((window as any).ExperimentalBadge) {
+        (window as any).ExperimentalBadge.clear();
+      }
+
       if ((window as any).Windows) {
         this.systemMediaControls.playbackStatus = (window as any).Windows.Media.MediaPlaybackStatus.paused;
       }
@@ -183,6 +192,10 @@ export class AppRoot {
       this.playing = true;
       if (this.audioEl) {
         await this.audioEl.play();
+
+        if ((window as any).ExperimentalBadge) {
+          (window as any).ExperimentalBadge.set();
+        }
 
         if ((window as any).Windows) {
           this.systemMediaControls.playbackStatus = (window as any).Windows.Media.MediaPlaybackStatus.playing;
@@ -367,6 +380,10 @@ export class AppRoot {
     this.likes = '';
     this.desc = '';
 
+    if ((window as any).ExperimentalBadge) {
+      (window as any).ExperimentalBadge.clear();
+    }
+
     if (this.wakeLockRequest) {
       this.wakeLockRequest.cancel();
       this.wakeLockRequest = null;
@@ -377,7 +394,7 @@ export class AppRoot {
   render() {
     return (
       <ion-app>
-        <ion-router useHash={false}>
+        <ion-router useHash={true}>
           <ion-route-redirect from="/" to={this.hasSeenTutorial ? '/home' : '/intro'} />
 
           <ion-route url='/intro' component='app-intro' />
