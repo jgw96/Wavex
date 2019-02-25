@@ -3,6 +3,10 @@
   width: 1.4em;
 }
 
+ion-header {
+  -webkit-app-region: drag;
+}
+
 #savedTracksDiv {
   animation-name: expandIn;
   animation-duration: 300ms;

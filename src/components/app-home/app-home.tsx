@@ -168,7 +168,7 @@ export class AppHome {
 
   render() {
     return [
-      <ion-header no-border>
+      <ion-header no-border >
         <ion-toolbar color="primary">
           <ion-title>wavex</ion-title>
 

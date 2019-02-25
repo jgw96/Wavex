@@ -4,6 +4,10 @@
   display: initial !important;
 }
 
+ion-header {
+  -webkit-app-region: drag;
+}
+
 #extraContent p {
   margin-top: 2em;
 }

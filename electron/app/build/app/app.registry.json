@@ -3,60 +3,60 @@
   "fsNamespace": "app",
   "loader": "../app.js",
   "global": "app.global.js",
-  "core": "app.urlksxig.js",
-  "corePolyfilled": "app.dd5uf0ge.js",
+  "core": "app.frm6tzwf.js",
+  "corePolyfilled": "app.eyxg6nhk.js",
   "components": {
     "app-home": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       }
     },
     "app-install-button": {
       "bundleIds": {
-        "ios": "8o04m1gw",
-        "md": "b1qankbs"
+        "ios": "bntymjdc",
+        "md": "0m8rmycz"
       }
     },
     "app-intro": {
       "bundleIds": {
-        "ios": "ipu3lkvy",
-        "md": "q3vmq28f"
+        "ios": "nyg5fe5e",
+        "md": "475tvclq"
       }
     },
     "app-login": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       }
     },
     "app-profile": {
       "bundleIds": {
-        "ios": "xyfguvg6",
-        "md": "j6k9zggr"
+        "ios": "huxjhsfw",
+        "md": "r1812jvk"
       }
     },
     "app-root": {
       "bundleIds": {
-        "$": "jqn2z5mb"
+        "$": "ckrqduix"
       }
     },
     "ion-action-sheet": {
       "bundleIds": {
-        "ios": "wqpdev08",
-        "md": "mqjgj1gx"
+        "ios": "7icfgy7q",
+        "md": "pcex6xjm"
       },
       "encapsulation": "scoped"
     },
     "ion-action-sheet-controller": {
       "bundleIds": {
-        "ios": "wqpdev08",
-        "md": "mqjgj1gx"
+        "ios": "7icfgy7q",
+        "md": "pcex6xjm"
       }
     },
     "ion-app": {
       "bundleIds": {
-        "$": "jqn2z5mb"
+        "$": "ckrqduix"
       }
     },
     "ion-back-button": {
@@ -68,15 +68,15 @@
     },
     "ion-backdrop": {
       "bundleIds": {
-        "ios": "qxsawymk",
-        "md": "bhgroo3p"
+        "ios": "ojqsfgys",
+        "md": "bw6zyrdi"
       },
       "encapsulation": "shadow"
     },
     "ion-button": {
       "bundleIds": {
-        "ios": "rgpsniw8",
-        "md": "lzp9g0g9"
+        "ios": "khoqh8ad",
+        "md": "l7gz7eda"
       },
       "encapsulation": "shadow"
     },
@@ -89,35 +89,35 @@
     },
     "ion-card": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "scoped"
     },
     "ion-card-content": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       }
     },
     "ion-card-header": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "shadow"
     },
     "ion-card-subtitle": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "shadow"
     },
     "ion-card-title": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "shadow"
     },
@@ -130,15 +130,15 @@
     },
     "ion-fab": {
       "bundleIds": {
-        "ios": "wqpdev08",
-        "md": "mqjgj1gx"
+        "ios": "7icfgy7q",
+        "md": "pcex6xjm"
       },
       "encapsulation": "shadow"
     },
     "ion-fab-button": {
       "bundleIds": {
-        "ios": "wqpdev08",
-        "md": "mqjgj1gx"
+        "ios": "7icfgy7q",
+        "md": "pcex6xjm"
       },
       "encapsulation": "shadow"
     },
@@ -156,8 +156,8 @@
     },
     "ion-img": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "shadow"
     },
@@ -170,61 +170,61 @@
     },
     "ion-item-option": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "shadow"
     },
     "ion-item-options": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       }
     },
     "ion-item-sliding": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       }
     },
     "ion-label": {
       "bundleIds": {
-        "ios": "8o04m1gw",
-        "md": "b1qankbs"
+        "ios": "bntymjdc",
+        "md": "0m8rmycz"
       },
       "encapsulation": "scoped"
     },
     "ion-list": {
       "bundleIds": {
-        "ios": "8o04m1gw",
-        "md": "b1qankbs"
+        "ios": "bntymjdc",
+        "md": "0m8rmycz"
       }
     },
     "ion-list-header": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "shadow"
     },
     "ion-nav": {
       "bundleIds": {
-        "ios": "8o04m1gw",
-        "md": "b1qankbs"
+        "ios": "bntymjdc",
+        "md": "0m8rmycz"
       },
       "encapsulation": "shadow"
     },
     "ion-popover": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "scoped"
     },
     "ion-popover-controller": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       }
     },
     "ion-ripple-effect": {
@@ -235,49 +235,49 @@
     },
     "ion-route": {
       "bundleIds": {
-        "$": "jqn2z5mb"
+        "$": "ckrqduix"
       }
     },
     "ion-route-redirect": {
       "bundleIds": {
-        "$": "jqn2z5mb"
+        "$": "ckrqduix"
       }
     },
     "ion-router": {
       "bundleIds": {
-        "$": "jqn2z5mb"
+        "$": "ckrqduix"
       }
     },
     "ion-searchbar": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "scoped"
     },
     "ion-skeleton-text": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "shadow"
     },
     "ion-slide": {
       "bundleIds": {
-        "ios": "ipu3lkvy",
-        "md": "q3vmq28f"
+        "ios": "nyg5fe5e",
+        "md": "475tvclq"
       }
     },
     "ion-slides": {
       "bundleIds": {
-        "ios": "ipu3lkvy",
-        "md": "q3vmq28f"
+        "ios": "nyg5fe5e",
+        "md": "475tvclq"
       }
     },
     "ion-thumbnail": {
       "bundleIds": {
-        "ios": "htajwmkj",
-        "md": "mjlomlam"
+        "ios": "x0yzxjsr",
+        "md": "ncuc6qj9"
       },
       "encapsulation": "shadow"
     },
@@ -290,21 +290,21 @@
     },
     "ion-toast": {
       "bundleIds": {
-        "ios": "8o04m1gw",
-        "md": "b1qankbs"
+        "ios": "bntymjdc",
+        "md": "0m8rmycz"
       },
       "encapsulation": "shadow"
     },
     "ion-toast-controller": {
       "bundleIds": {
-        "ios": "8o04m1gw",
-        "md": "b1qankbs"
+        "ios": "bntymjdc",
+        "md": "0m8rmycz"
       }
     },
     "ion-toggle": {
       "bundleIds": {
-        "ios": "xyfguvg6",
-        "md": "j6k9zggr"
+        "ios": "huxjhsfw",
+        "md": "r1812jvk"
       },
       "encapsulation": "shadow"
     },
@@ -317,15 +317,15 @@
     },
     "popover-page": {
       "bundleIds": {
-        "ios": "8o04m1gw",
-        "md": "b1qankbs"
+        "ios": "bntymjdc",
+        "md": "0m8rmycz"
       },
       "encapsulation": "shadow"
     },
     "track-detail": {
       "bundleIds": {
-        "ios": "wqpdev08",
-        "md": "mqjgj1gx"
+        "ios": "7icfgy7q",
+        "md": "pcex6xjm"
       }
     }
   }

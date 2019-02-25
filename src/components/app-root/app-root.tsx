@@ -65,7 +65,7 @@ export class AppRoot {
     this.hasSeenTutorial = (localStorage.getItem('seen') == 'true');
   }
 
-  componentDidLoad() {
+  async componentDidLoad() {
     if ((window as any).Windows && (window as any).Windows.UI.ViewManagement.ApplicationView) {
       const titleBar = (window as any).Windows.UI.ViewManagement.ApplicationView.getForCurrentView().titleBar;
       titleBar.backgroundColor = { a: 255, r: 32, g: 44, b: 56 };
