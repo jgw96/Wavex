@@ -25,8 +25,6 @@ export class PopoverPage {
   render() {
     return [
       <ion-list lines='none'>
-        <app-install-button></app-install-button>
-
         <ion-item onClick={() => this.delFave()}>
           <ion-label color='danger'>Delete Favorites</ion-label>
         </ion-item>

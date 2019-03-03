@@ -394,7 +394,7 @@ export class AppRoot {
   render() {
     return (
       <ion-app>
-        <ion-router useHash={true}>
+        <ion-router useHash={false}>
           <ion-route-redirect from="/" to={this.hasSeenTutorial ? '/home' : '/intro'} />
 
           <ion-route url='/intro' component='app-intro' />
@@ -443,6 +443,7 @@ export class AppRoot {
               <ion-icon name='star-outline'></ion-icon>
             </ion-button>
           </div>
+
         </footer> : null}
       </ion-app>
     );

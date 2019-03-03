@@ -16,6 +16,7 @@ ion-header {
 #dropdownArrow {
   transform-origin: center;
   transform: rotate(90deg) translateX(-3px);
+  color: white;
 }
 
 #searchToolbar {

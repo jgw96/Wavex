@@ -29,30 +29,9 @@
 </head>
 
 <body>
-
-  <div style="display: hidden; width: 100%;" id="electronHeader">
-    <button id="closeButton">Close</button>
-    <button id="minimizeButton">Minimize</button>
-    <button id="maximizeButton">Maximize</button>
-  </div>
-
   <noscript>JavaScript is required for this app</noscript>
 
   <app-root></app-root>
-
-  <script>
-    if (window.require) {
-      const header = document.querySelector("#electronHeader");
-      header.style.display = "flex";
-
-      const remote = window.require('electron').remote; 
-
-      document.querySelector("#closeButton").addEventListener('click', () => {
-        const window = remote.getCurrentWindow();
-        window.close();
-      })
-    }
-  </script>
 
 </body>
 

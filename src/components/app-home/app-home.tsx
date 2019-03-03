@@ -179,6 +179,7 @@ export class AppHome {
 
             <app-login></app-login>
 
+            <app-install-button></app-install-button>
           </ion-buttons>
         </ion-toolbar>
 
