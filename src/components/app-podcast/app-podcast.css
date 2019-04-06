@@ -26,6 +26,14 @@
   margin-bottom: 5px;
 }
 
+#epiDesc {
+  height: 1.6em;
+  width: 40em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 #info p {
   width: 80%;
 }

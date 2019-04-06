@@ -60,7 +60,7 @@ export class AppPodcast {
                           {episode.explicit_content ? <h3 id="explicit">Explicit</h3> : null}
                         </div>
 
-                        <p innerHTML={episode.description}></p>
+                        <p id="epiDesc" innerHTML={episode.description}></p>
 
                         <div id="podActions">
                           <ion-button shape="round" fill="outline">
