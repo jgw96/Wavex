@@ -4,7 +4,7 @@ import {
   HapticsImpactStyle
 } from '@capacitor/core';
 
-import { getSingleTrack } from '../../services/api';
+// import { getSingleTrack } from '../../services/api';
 import { saveSong } from '../../services/data';
 
 declare var MediaMetadata: any;
@@ -68,11 +68,11 @@ export class AppRoot {
   async componentDidLoad() {
     if ((window as any).Windows && (window as any).Windows.UI.ViewManagement.ApplicationView) {
       const titleBar = (window as any).Windows.UI.ViewManagement.ApplicationView.getForCurrentView().titleBar;
-      titleBar.backgroundColor = { a: 255, r: 32, g: 44, b: 56 };
+      titleBar.backgroundColor = { a: 255, r: 39, g: 39, b: 39 };
       titleBar.foregroundColor = { a: 255, r: 255, g: 255, b: 255 };
-      titleBar.inactiveBackgroundColor = { a: 255, r: 32, g: 44, b: 56 };
-      titleBar.inactiveForegroundColor = { a: 255, r: 32, g: 44, b: 56 };
-      titleBar.buttonBackgroundColor = { a: 255, r: 32, g: 44, b: 56 };
+      titleBar.inactiveBackgroundColor = { a: 255, r: 39, g: 39, b: 39 };
+      titleBar.inactiveForegroundColor = { a: 255, r: 39, g: 39, b: 39 };
+      titleBar.buttonBackgroundColor = { a: 255, r: 39, g: 39, b: 39 };
     }
 
     if (window.matchMedia("(min-width: 1200px)").matches && this.hasSeenTutorial === true) {
@@ -215,7 +215,7 @@ export class AppRoot {
     }
 
     console.log(this.genre);
-    const track = await getSingleTrack(this.genre ? this.genre : '');
+    /*const track = await getSingleTrack();
 
     this.currentTrack = track;
     this.musicSrc = track.stream_url;
@@ -230,7 +230,7 @@ export class AppRoot {
 
         this.setUpMeta(track);
       }
-    }
+    }*/
   }
 
   async prev() {
@@ -399,6 +399,7 @@ export class AppRoot {
 
           <ion-route url='/intro' component='app-intro' />
           <ion-route url="/home" component="app-home" />
+          <ion-route url="/podcast/:pod" component="app-podcast" />
           <ion-route url="/profile/:name" component="app-profile" />
           <ion-route url="/track/:id" component="track-detail" />
         </ion-router>

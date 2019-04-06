@@ -18,12 +18,12 @@
     "@capacitor/android": "^1.0.0-beta.13",
     "@capacitor/cli": "^1.0.0-beta.17",
     "@capacitor/core": "^1.0.0-beta.17",
-    "@ionic/core": "^4.0.2",
+    "@ionic/core": "4.2.0",
     "idb-keyval": "^3.1.0",
     "msal": "^0.2.3"
   },
   "devDependencies": {
-    "@stencil/core": "^0.18.0",
+    "@stencil/core": "0.18.1",
     "workbox-build": "3.4.1"
   }
 }

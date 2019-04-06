@@ -28,6 +28,13 @@ export namespace Components {
   interface AppLogin {}
   interface AppLoginAttributes extends StencilHTMLAttributes {}
 
+  interface AppPodcast {
+    'pod': number;
+  }
+  interface AppPodcastAttributes extends StencilHTMLAttributes {
+    'pod'?: number;
+  }
+
   interface AppProfile {
     'name': string;
   }
@@ -61,6 +68,7 @@ declare global {
     'AppInstallButton': Components.AppInstallButton;
     'AppIntro': Components.AppIntro;
     'AppLogin': Components.AppLogin;
+    'AppPodcast': Components.AppPodcast;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
     'PopoverPage': Components.PopoverPage;
@@ -72,6 +80,7 @@ declare global {
     'app-install-button': Components.AppInstallButtonAttributes;
     'app-intro': Components.AppIntroAttributes;
     'app-login': Components.AppLoginAttributes;
+    'app-podcast': Components.AppPodcastAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
     'popover-page': Components.PopoverPageAttributes;
@@ -103,6 +112,12 @@ declare global {
     new (): HTMLAppLoginElement;
   };
 
+  interface HTMLAppPodcastElement extends Components.AppPodcast, HTMLStencilElement {}
+  var HTMLAppPodcastElement: {
+    prototype: HTMLAppPodcastElement;
+    new (): HTMLAppPodcastElement;
+  };
+
   interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {}
   var HTMLAppProfileElement: {
     prototype: HTMLAppProfileElement;
@@ -132,6 +147,7 @@ declare global {
     'app-install-button': HTMLAppInstallButtonElement
     'app-intro': HTMLAppIntroElement
     'app-login': HTMLAppLoginElement
+    'app-podcast': HTMLAppPodcastElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
     'popover-page': HTMLPopoverPageElement
@@ -143,6 +159,7 @@ declare global {
     'app-install-button': HTMLAppInstallButtonElement;
     'app-intro': HTMLAppIntroElement;
     'app-login': HTMLAppLoginElement;
+    'app-podcast': HTMLAppPodcastElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
     'popover-page': HTMLPopoverPageElement;

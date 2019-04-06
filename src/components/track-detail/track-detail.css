@@ -10,6 +10,7 @@ ion-header {
 
 #extraContent p {
   margin-top: 2em;
+  width: 80%;
 }
 
 #albumArt img {
@@ -21,6 +22,16 @@ ion-header {
   margin-right: 10px;
 }
 
+#shareButton {
+  width: 27%;
+}
+
+#podActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1em;
+}
+
 #fakeImg {
   height: 14em;
   width: 14em;
@@ -29,15 +40,33 @@ ion-header {
   margin-right: 10px;
 }
 
-#header {
+#podcastExtra {
   display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
+  justify-content: start;
+  margin-top: 12px;
+  margin-bottom: 5px;
+}
+
+#podcastExtra h3#explicit {
+  color: var(--ion-color-danger);
+  margin-left: 1em;
+}
+
+#podcastExtra h3 {
+  color: lightgrey;
+}
+
+ion-list ion-item ion-label h2 {
+  font-weight: bold !important;
+}
+
+#header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 #header #headerContent {
   display: flex;
-  justify-content: flex-end;
   width: initial;
   flex-direction: column;
 }
@@ -130,11 +159,6 @@ h1 {
     padding-left: 14em;
     padding-right: 14em;
     margin-top: 4em;
-  }
-
-  #containDiv {
-    margin-left: 34em;
-    margin-right: 19em;
   }
 }
 

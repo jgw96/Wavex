@@ -3,10 +3,6 @@
   width: 1.4em;
 }
 
-ion-header {
-  -webkit-app-region: drag;
-}
-
 #savedTracksDiv {
   animation-name: expandIn;
   animation-duration: 300ms;
@@ -22,7 +18,7 @@ ion-header {
 #searchToolbar {
   transform-origin: top;
   animation-name: expandIn;
-  animation-duration: 300ms;
+  animation-duration: 200ms;
 }
 
 #desktopSavedListDiv {
@@ -40,6 +36,27 @@ ion-list-header ion-label {
   margin-right: 10px;
 }
 
+
+#mainDiv ion-list {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-image: url(/assets/home.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#mainDiv ion-list ion-card {
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+  background: var(--ion-color-dark);
+  /*backdrop-filter: blur(4px);
+  opacity: 0.9;*/
+}
+
+#mainDiv ion-list ion-card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
 @keyframes expandIn {
   from {
     opacity: 0;
@@ -52,9 +69,9 @@ ion-list-header ion-label {
 }
 
 @media (min-width: 1200px) {
-  #container {
+  /*#container {
     margin-left: 16em;
-  }
+  }*/
 
   #savedTracksDiv {
     display: none;

@@ -1,0 +1,46 @@
+
+#podContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#podcastInfo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#podcastInfo h3 {
+  font-size: 14px;
+  margin-left: initial;
+}
+
+#podcastInfo h3#explicit {
+  margin-left: 12px;
+  color: var(--ion-color-danger);
+}
+
+#podcastExplicitBox h3#explicit {
+  color: var(--ion-color-danger);
+  margin-top: 1em;
+  margin-left: initial !important;
+  margin-bottom: 5px;
+}
+
+#info p {
+  width: 80%;
+}
+
+#episodes h2 {
+  font-weight: bold;
+}
+
+#podActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  margin-bottom: 1em;
+}
+
+#info h1 {
+  font-weight: bold;
+}

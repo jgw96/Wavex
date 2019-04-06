@@ -4,7 +4,7 @@ import {
   HapticsImpactStyle
 } from '@capacitor/core';
 
-import { getTrackDetail } from '../../services/api';
+import { getListDetail } from '../../services/api';
 import { createActivity, getWindowsDevices, sendCommand } from '../../services/graph';
 
 const { Haptics, Share } = Plugins;
@@ -22,16 +22,18 @@ export class TrackDetail {
   @Prop() id: string = '';
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
   @Prop({ connect: 'ion-action-sheet-controller' }) actionSheetCtrl: any | null = null;
+  @Prop({ connect: 'ion-router' })
+  router: HTMLIonRouterElement | null = null;
 
-  @State() track: any | null = null;
+  @State() podcast: any | null = null;
   @State() token: string | null = sessionStorage.getItem('token');
   @State() devices: any[] = [];
 
   @Event() playEvent: EventEmitter | null = null;
 
   async componentDidLoad() {
-    this.track = await getTrackDetail(this.id);
-    console.log(this.track);
+    this.podcast = await getListDetail(this.id);
+    console.log(this.podcast);
     console.log('token', this.token);
 
     if (this.el) {
@@ -42,24 +44,24 @@ export class TrackDetail {
   playTrack() {
     if (this.playEvent) {
       this.playEvent.emit({
-        track: this.track
+        track: this.podcast
       });
     }
   }
 
   async listenLater() {
     const activity = {
-      "appActivityId": `/track/${this.track.id}`,
+      "appActivityId": `/track/${this.podcast.id}`,
       "activitySourceHost": "https://wavex-app.firebaseapp.com",
       "userTimezone": Intl.DateTimeFormat().resolvedOptions().timeZone,
       "appDisplayName": "Musically",
-      "activationUrl": `https://wavex-app.firebaseapp.com/track/${this.track.id}`,
-      "contentUrl": `https://wavex-app.firebaseapp.com/track/${this.track.id}`,
+      "activationUrl": `https://wavex-app.firebaseapp.com/track/${this.podcast.id}`,
+      "contentUrl": `https://wavex-app.firebaseapp.com/track/${this.podcast.id}`,
       "fallbackUrl": "https://wavex-app.firebaseapp.com",
       "contentInfo": {
         "@context": "https://schema.org",
         "@type": "Song",
-        "title": this.track.title
+        "title": this.podcast.title
       },
       "visualElements": {
         "attribution": {
@@ -67,9 +69,9 @@ export class TrackDetail {
           "alternateText": "Musically",
           "addImageQuery": false,
         },
-        "description": `${this.track.title} was added to your Listen Later list`,
+        "description": `${this.podcast.title} was added to your Listen Later list`,
         "backgroundColor": "#ff0000",
-        "displayText": `Listen to ${this.track.title}`,
+        "displayText": `Listen to ${this.podcast.title}`,
         "content": {
           "$schema": "https://adaptivecards.io/schemas/adaptive-card.json",
           "type": "AdaptiveCard",
@@ -90,7 +92,7 @@ export class TrackDetail {
     }
 
     if (this.token) {
-      const data = await createActivity(this.token, activity, this.track.id);
+      const data = await createActivity(this.token, activity, this.podcast.id);
       console.log(data);
 
       if (this.toastCtrl) {
@@ -189,7 +191,7 @@ export class TrackDetail {
         const data = ev.request.data;
         console.log(data.properties);
 
-        data.properties.title = this.track.title;
+        data.properties.title = this.podcast.title;
         data.properties.description = "Check out this song!";
         data.setUri(new (window as any).Windows.Foundation.Uri(shareURL));
       });
@@ -233,6 +235,12 @@ export class TrackDetail {
     await actionSheet.present();
   }
 
+  async goToPodcast(id: number) {
+    console.log(id);
+    const nav: HTMLIonRouterElement = await (this.router as any).componentOnReady();
+    await nav.push(`/podcast/${id}`);
+  }
+
   render() {
     return [
       <ion-header no-border>
@@ -240,7 +248,7 @@ export class TrackDetail {
           <ion-buttons slot="start">
             <ion-back-button defaultHref="/" />
           </ion-buttons>
-          <ion-title>{this.track ? this.track.title : 'loading...'}</ion-title>
+          <ion-title>{this.podcast ? this.podcast.title : 'loading...'}</ion-title>
         </ion-toolbar>
       </ion-header>,
 
@@ -249,11 +257,8 @@ export class TrackDetail {
           <section id='header'>
 
             <div id='headerContent'>
-              <div id='albumArt'>
-                {this.track && this.track.artwork_url ? <img src={this.track.artwork_url} alt={`${this.track.title} album art`}></img> : <div id='fakeImg'></div>}
-              </div>
 
-              <section id='actions'>
+              {/*<section id='actions'>
                 <ion-button onClick={() => this.playTrack()} shape='round' id='playButton'>
                   <ion-icon slot="start" name="play"></ion-icon>
                   Play
@@ -262,16 +267,53 @@ export class TrackDetail {
                   <ion-icon slot="start" name="share"></ion-icon>
                   Share
             </ion-button>
-              </section>
+    </section>*/}
 
               <div id='headerTrackDetail'>
-                {this.track ? <h1 id='realH1' key={1}>{this.track.title}</h1> : <h1 key={0}>Loading...</h1>}
-                <p id='by'>Posted by {this.track && this.track.user ? this.track.user.username : 'loading...'}</p>
+                {this.podcast ? <h1 id='realH1' key={1}>{this.podcast.title}</h1> : <h1 key={0}>Loading...</h1>}
               </div>
+
+              <div id='extraContent'>
+                <p>{this.podcast ? this.podcast.description : 'loading...'}</p>
+              </div>
+
+              <ion-button color='secondary' shape='round' id='shareButton' onClick={() => this.share()}>
+                <ion-icon slot="start" name="share"></ion-icon>
+                Share List
+              </ion-button>
             </div>
 
-            <div id='extraContent'>
-              <p>{this.track ? this.track.description : 'loading...'}</p>
+
+            <div id="podList">
+              <ion-list lines="none">
+                {
+                  this.podcast ? this.podcast.podcasts.map((podcast: any) => {
+                    return (
+                      <ion-item>
+                        <ion-thumbnail slot="start">
+                          <img src={podcast.thumbnail}></img>
+                        </ion-thumbnail>
+                        <ion-label text-wrap>
+                          <h2>{podcast.title}</h2>
+
+                          <div id="podcastExtra">
+                            <h3>{podcast.language}</h3>
+                            {podcast.explicit_content ? <h3 id="explicit">Explicit</h3> : null}
+                          </div>
+
+                          <p innerHTML={podcast.description}></p>
+
+                          <div id="podActions">
+                            <ion-button onClick={() => this.goToPodcast(podcast.id)} shape="round" fill="outline">
+                              See More
+                            </ion-button>
+                          </div>
+                        </ion-label>
+                      </ion-item>
+                    )
+                  }) : null
+                }
+              </ion-list>
             </div>
           </section>
         </div>
