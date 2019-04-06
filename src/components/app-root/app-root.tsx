@@ -112,13 +112,18 @@ export class AppRoot {
     await this.doWakeLock();
 
     if (event && event.detail && event.detail.track) {
-      console.log('playEvent', event.detail.track)
+      console.log('playEvent', event.detail.track);
+
       this.currentTrack = event.detail.track;
+      this.musicSrc = event.detail.track.audio;
+      this.musicTitle = event.detail.track.title;
+      this.desc = event.detail.track.description;
+      /*this.currentTrack = event.detail.track;
       this.musicSrc = event.detail.track.stream_url;
       this.musicTitle = event.detail.track.title;
       this.genre = event.detail.track.genre;
       this.likes = event.detail.track.likes_count;
-      this.desc = event.detail.track.description;
+      this.desc = event.detail.track.description;*/
 
       if (this.audioEl) {
         this.audioEl.oncanplay = async () => {

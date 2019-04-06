@@ -1,4 +1,4 @@
-import { Component, State, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, State, Prop } from '@stencil/core';
 
 import { getSingleTrack } from '../../services/api';
 
@@ -12,6 +12,8 @@ export class AppPodcast {
 
   @State() podcast: any | null = null;
 
+  @Event() playEvent: EventEmitter | null = null;
+
   // todo: change to DidLoad and add skeleton
   async componentWillLoad() {
     console.log(this.pod);
@@ -21,6 +23,14 @@ export class AppPodcast {
     }
 
     console.log('podcast', this.podcast);
+  }
+
+  playTrack(episode) {
+    if (this.playEvent) {
+      this.playEvent.emit({
+        track: episode
+      });
+    }
   }
 
   render() {
@@ -63,7 +73,7 @@ export class AppPodcast {
                         <p id="epiDesc" innerHTML={episode.description}></p>
 
                         <div id="podActions">
-                          <ion-button shape="round" fill="outline">
+                          <ion-button onClick={() => this.playTrack(episode)} shape="round" fill="outline">
                             <ion-icon slot='start' name='play'></ion-icon>
                             play
                           </ion-button>

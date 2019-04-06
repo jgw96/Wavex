@@ -32,6 +32,7 @@ export namespace Components {
     'pod': number;
   }
   interface AppPodcastAttributes extends StencilHTMLAttributes {
+    'onPlayEvent'?: (event: CustomEvent) => void;
     'pod'?: number;
   }
 
