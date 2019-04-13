@@ -417,7 +417,6 @@ export class AppRoot {
             <h3>{this.musicTitle || 'Nothing Playing'}</h3>
             <p>Genre: {this.genre || 'Not available'}</p>
             <p>Likes: {this.likes || 'Not available'}</p>
-            <p>Description: {this.desc || 'Not available'}</p>
           </div>
 
           <div id='mobileInfo'>

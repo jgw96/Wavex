@@ -9,6 +9,7 @@
   transform-origin: top;
 }
 
+
 #dropdownArrow {
   transform-origin: center;
   transform: rotate(90deg) translateX(-3px);
@@ -36,21 +37,17 @@ ion-list-header ion-label {
   margin-right: 10px;
 }
 
-
-#mainDiv ion-list {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-image: url(/assets/home.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
 #mainDiv ion-list ion-card {
   transition: box-shadow 0.3s;
   cursor: pointer;
-  background: var(--ion-color-dark);
+  background: white;
   /*backdrop-filter: blur(4px);
   opacity: 0.9;*/
+}
+
+#mainDiv ion-list ion-list-header ion-label {
+  color: var(--ion-color-primary);
+  font-size: 3.2em;
 }
 
 #mainDiv ion-list ion-card:hover {
@@ -69,9 +66,14 @@ ion-list-header ion-label {
 }
 
 @media (min-width: 1200px) {
-  /*#container {
-    margin-left: 16em;
-  }*/
+  #container {
+    margin-left: 15em;
+  }
+
+  #mainDiv ion-list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
 
   #savedTracksDiv {
     display: none;

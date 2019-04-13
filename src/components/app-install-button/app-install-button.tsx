@@ -38,7 +38,7 @@ export class AppInstallButton {
   render() {
     return (
       this.deferredPrompt ? <ion-item>
-        <ion-button onClick={() => this.install()}>Install</ion-button>
+        <ion-button fill="clear" onClick={() => this.install()}>Install</ion-button>
       </ion-item> : null
     );
   }

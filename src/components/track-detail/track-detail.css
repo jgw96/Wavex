@@ -4,9 +4,11 @@
   display: initial !important;
 }
 
-ion-header {
-  -webkit-app-region: drag;
+#podContainer #info img {
+  margin-top: 1em;
+  margin-bottom: 1.6em;
 }
+
 
 #extraContent p {
   margin-top: 2em;
@@ -53,7 +55,7 @@ ion-header {
 }
 
 #podcastExtra h3 {
-  color: lightgrey;
+  color: grey;
 }
 
 ion-list ion-item ion-label h2 {
@@ -154,17 +156,35 @@ h1 {
 }
 
 @media(min-width: 1200px) {
-  #wrapperDiv {
+  #containDiv {
     margin-left: 15em;
-    padding-left: 14em;
-    padding-right: 14em;
-    margin-top: 4em;
+  }
+
+  #epiHeader {
+    display: none;
   }
 }
 
 @media(max-width: 1200px) {
   header {
     flex-direction: column;
+  }
+
+  #shareButton {
+    width: 44%;
+  }
+
+  #header {
+    display: initial;
+  }
+
+  #podList p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #epiHeader {
+    margin-top: 2em;
   }
 
   #headerContent {

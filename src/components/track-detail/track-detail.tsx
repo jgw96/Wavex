@@ -22,8 +22,7 @@ export class TrackDetail {
   @Prop() id: string = '';
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
   @Prop({ connect: 'ion-action-sheet-controller' }) actionSheetCtrl: any | null = null;
-  @Prop({ connect: 'ion-router' })
-  router: HTMLIonRouterElement | null = null;
+  @Prop({ connect: 'ion-router' }) router: any = null;
 
   @State() podcast: any | null = null;
   @State() token: string | null = sessionStorage.getItem('token');
@@ -237,7 +236,7 @@ export class TrackDetail {
 
   async goToPodcast(id: number) {
     console.log(id);
-    const nav: HTMLIonRouterElement = await (this.router as any).componentOnReady();
+    const nav: any = document.querySelector('ion-router');
     await nav.push(`/podcast/${id}`);
   }
 
@@ -285,6 +284,8 @@ export class TrackDetail {
 
 
             <div id="podList">
+              <h2 id="epiHeader">Podcasts</h2>
+              
               <ion-list lines="none">
                 {
                   this.podcast ? this.podcast.podcasts.map((podcast: any) => {
@@ -305,7 +306,7 @@ export class TrackDetail {
 
                           <div id="podActions">
                             <ion-button onClick={() => this.goToPodcast(podcast.id)} shape="round" fill="outline">
-                              See More
+                              See Episodes
                             </ion-button>
                           </div>
                         </ion-label>
@@ -325,7 +326,7 @@ export class TrackDetail {
         </ion-fab> : null}
 
         {
-          this.devices.length ? <div id='devicesDiv'>
+          this.devices && this.devices.length > 0 ? <div id='devicesDiv'>
             <button id='closeButton' onClick={() => this.close()}>X</button>
             <h3>Choose a device</h3>
             <ul>

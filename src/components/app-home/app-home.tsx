@@ -16,9 +16,9 @@ export class AppHome {
 
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
   @Prop({ connect: 'ion-router' })
-  router: HTMLIonRouterElement | null = null;
+  router: any| null = null;
 
-  @Element() el: HTMLElement | null = null;
+  @Element() el: HTMLElement;
 
   @Event() playEvent: EventEmitter | null = null;
   @Event() saveEvent: EventEmitter | null = null;
@@ -198,7 +198,7 @@ export class AppHome {
         </ion-toolbar> : null}
       </ion-header>,
 
-      <ion-content padding>
+      <ion-content>
         <main id='container'>
           {/*<div id='desktopSavedListDiv'>
             <ion-list id='desktopSavedList'>
@@ -260,11 +260,11 @@ export class AppHome {
                     <ion-card onClick={() => this.goToPod(podcast.id)}>
                       <ion-card-header>
                         <ion-card-subtitle>{podcast.source_domain}</ion-card-subtitle>
-                        <ion-card-title>{podcast.title}</ion-card-title>
+                        <ion-card-title>{podcast.title || podcast.title_original}</ion-card-title>
                       </ion-card-header>
 
                       <ion-card-content>
-                        {podcast.description}
+                        {podcast.description || podcast.description_original}
                       </ion-card-content>
                     </ion-card>
                   )

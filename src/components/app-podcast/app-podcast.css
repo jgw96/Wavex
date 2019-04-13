@@ -38,6 +38,13 @@
   width: 80%;
 }
 
+#epiTitle {
+  width: 20em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 #episodes h2 {
   font-weight: bold;
 }
@@ -51,4 +58,24 @@
 
 #info h1 {
   font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+  #podContainer {
+    margin-left: 15em;
+  }
+
+  #epiHeader {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  #podContainer {
+    display: initial;
+  }
+
+  #epiHeader {
+    margin-top: 2em;
+  }
 }

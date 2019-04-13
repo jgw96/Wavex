@@ -46,6 +46,14 @@ export namespace Components {
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
 
+  interface PodDetail {
+    'pod': any;
+  }
+  interface PodDetailAttributes extends StencilHTMLAttributes {
+    'onPlayEvent'?: (event: CustomEvent) => void;
+    'pod'?: any;
+  }
+
   interface PopoverPage {
     'userAgent': any;
   }
@@ -72,6 +80,7 @@ declare global {
     'AppPodcast': Components.AppPodcast;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
+    'PodDetail': Components.PodDetail;
     'PopoverPage': Components.PopoverPage;
     'TrackDetail': Components.TrackDetail;
   }
@@ -84,6 +93,7 @@ declare global {
     'app-podcast': Components.AppPodcastAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
+    'pod-detail': Components.PodDetailAttributes;
     'popover-page': Components.PopoverPageAttributes;
     'track-detail': Components.TrackDetailAttributes;
   }
@@ -131,6 +141,12 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLPodDetailElement extends Components.PodDetail, HTMLStencilElement {}
+  var HTMLPodDetailElement: {
+    prototype: HTMLPodDetailElement;
+    new (): HTMLPodDetailElement;
+  };
+
   interface HTMLPopoverPageElement extends Components.PopoverPage, HTMLStencilElement {}
   var HTMLPopoverPageElement: {
     prototype: HTMLPopoverPageElement;
@@ -151,6 +167,7 @@ declare global {
     'app-podcast': HTMLAppPodcastElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
+    'pod-detail': HTMLPodDetailElement
     'popover-page': HTMLPopoverPageElement
     'track-detail': HTMLTrackDetailElement
   }
@@ -163,6 +180,7 @@ declare global {
     'app-podcast': HTMLAppPodcastElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'pod-detail': HTMLPodDetailElement;
     'popover-page': HTMLPopoverPageElement;
     'track-detail': HTMLTrackDetailElement;
   }

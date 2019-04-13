@@ -9,6 +9,7 @@ import { getSingleTrack } from '../../services/api';
 export class AppPodcast {
 
   @Prop() pod: number;
+  @Prop({ connect: 'ion-modal-controller' }) modalCtrl: any | null = null;
 
   @State() podcast: any | null = null;
 
@@ -25,12 +26,24 @@ export class AppPodcast {
     console.log('podcast', this.podcast);
   }
 
-  playTrack(episode) {
+  playTrack(episode, e: Event) {
     if (this.playEvent) {
       this.playEvent.emit({
         track: episode
       });
     }
+
+    e.stopPropagation();
+  }
+
+  async moreInfo(episode) {
+    const modal = await this.modalCtrl.create({
+      component: 'pod-detail',
+      componentProps: {
+        'pod': episode
+      }
+    });
+    await modal.present();
   }
 
   render() {
@@ -40,7 +53,7 @@ export class AppPodcast {
           <ion-buttons slot="start">
             <ion-back-button defaultHref="/" />
           </ion-buttons>
-          <ion-title>podcast</ion-title>
+          <ion-title>Podcast</ion-title>
         </ion-toolbar>
       </ion-header>,
 
@@ -58,13 +71,15 @@ export class AppPodcast {
           </section>
 
           <section id="episodes">
+            <h2 id="epiHeader">Episodes</h2>
+
             <ion-list lines='none'>
               {
                 this.podcast.episodes.map((episode) => {
                   return (
-                    <ion-item>
+                    <ion-item onClick={() => this.moreInfo(episode)}>
                       <ion-label text-wrap>
-                        <h2>{episode.title}</h2>
+                        <h2 id="epiTitle">{episode.title}</h2>
 
                         <div id="podcastExplicitBox">
                           {episode.explicit_content ? <h3 id="explicit">Explicit</h3> : null}
@@ -73,7 +88,7 @@ export class AppPodcast {
                         <p id="epiDesc" innerHTML={episode.description}></p>
 
                         <div id="podActions">
-                          <ion-button onClick={() => this.playTrack(episode)} shape="round" fill="outline">
+                          <ion-button onClick={(event) => this.playTrack(episode, event)} shape="round" fill="outline">
                             <ion-icon slot='start' name='play'></ion-icon>
                             play
                           </ion-button>

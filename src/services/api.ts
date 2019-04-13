@@ -53,7 +53,7 @@ export async function getSingleTrack(id: string) {
 }
 
 export async function searchTracks(query: string) {
-  const url = `${root}/tracks?client_id=${key}&q=${query}`;
+  const url = `${root}/search?q=${query}`;
 
   const response = await fetch(url, {
     headers: {
@@ -61,6 +61,7 @@ export async function searchTracks(query: string) {
     }
   });
   const data = await response.json();
+  console.log(data);
 
-  return data;
+  return data.results;
 }
