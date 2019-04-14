@@ -1,7 +1,14 @@
 import '@ionic/core';
 
-/*import {  } from '@ionic/core';
+import { setupConfig } from '@ionic/core';
 
-setupConfig({
-   animated: window.matchMedia("(min-width: 1000px)").matches ? false : true
+import { mdTransitionAnimation } from '../animations/navAni';
+
+/*setupConfig({
+   animated: window.matchMedia("(min-width: 1200px)").matches ? false : true
 });*/
+
+window.matchMedia("(min-width: 1200px)").matches ? setupConfig({
+  navAnimation: mdTransitionAnimation
+}) : null
+

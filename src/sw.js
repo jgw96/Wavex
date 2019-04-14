@@ -27,9 +27,4 @@ self.workbox.routing.registerRoute(
   workbox.strategies.staleWhileRevalidate()
 );
 
-self.workbox.routing.registerRoute(
-  /^https:\/\/api\.soundcloud\.com/,
-  workbox.strategies.staleWhileRevalidate()
-);
-
 self.workbox.precaching.precacheAndRoute([]);

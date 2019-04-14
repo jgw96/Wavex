@@ -21,7 +21,6 @@ export class AppRoot {
 
   @State() musicSrc: string = '';
   @State() musicTitle: string | null = null;
-  @State() genre: string = 'Not available';
   @State() likes: number | string = 'Not available';
   @State() desc: string = 'Not available';
   @State() playing: boolean = false;
@@ -218,8 +217,6 @@ export class AppRoot {
         style: HapticsImpactStyle.Light
       })
     }
-
-    console.log(this.genre);
     /*const track = await getSingleTrack();
 
     this.currentTrack = track;
@@ -381,7 +378,6 @@ export class AppRoot {
     this.musicSrc = '';
     this.musicTitle = '';
     this.playing = false;
-    this.genre = '';
     this.likes = '';
     this.desc = '';
 
@@ -415,8 +411,6 @@ export class AppRoot {
         {this.musicTitle ? <footer>
           <div id='expandedInfo'>
             <h3>{this.musicTitle || 'Nothing Playing'}</h3>
-            <p>Genre: {this.genre || 'Not available'}</p>
-            <p>Likes: {this.likes || 'Not available'}</p>
           </div>
 
           <div id='mobileInfo'>

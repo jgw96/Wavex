@@ -1,5 +1,10 @@
 import { Component, Event, EventEmitter, Element, Prop } from '@stencil/core';
+import {
+  Plugins,
+  HapticsImpactStyle
+} from '@capacitor/core';
 
+const { Haptics, Share } = Plugins;
 
 @Component({
   tag: 'pod-detail',
@@ -29,6 +34,57 @@ export class PodDetail {
     }
   }
 
+  async share() {
+    console.log(location.href);
+    console.log(location.origin);
+    console.log(location.hostname);
+
+    let shareURL = location.href;
+
+    if (location.origin.includes('localhost')) {
+      shareURL = `https://wavex-app.firebaseapp.com/${location.pathname}`;
+    }
+
+    if (Haptics) {
+      Haptics.impact({
+        style: HapticsImpactStyle.Light
+      })
+    }
+
+    if (Share && !(window as any).Windows) {
+      await Share.share({
+        title: 'wavex',
+        text: 'Check out this podcast!',
+        url: shareURL,
+        dialogTitle: 'Share this podcast'
+      });
+    }
+    else if ((window as any).Windows) {
+      console.log('trying to share');
+      const DataTransferManager = (window as any).Windows.ApplicationModel.DataTransfer.DataTransferManager;
+
+      const dataTransferManager = DataTransferManager.getForCurrentView();
+      console.log('dataTransferManager', dataTransferManager);
+
+      dataTransferManager.addEventListener("datarequested", (ev: any) => {
+        const data = ev.request.data;
+        console.log(data.properties);
+
+        data.properties.title = this.pod.title;
+        data.properties.description = "Check out this podcast!";
+        data.setUri(new (window as any).Windows.Foundation.Uri(shareURL));
+      });
+
+      try {
+        DataTransferManager.showShareUI();
+      }
+      catch (err) {
+        console.log('error', err);
+      }
+
+    }
+  }
+
   render() {
     return [
       <ion-header>
@@ -47,7 +103,7 @@ export class PodDetail {
         <h2 id="podDetailTitle">{this.pod.title}</h2>
 
         <div id="podDetailActions">
-          <ion-button color="secondary" shape="round">
+          <ion-button onClick={() => this.share()} color="secondary" shape="round">
             <ion-icon slot="start" name="share"></ion-icon>
             Share
           </ion-button>

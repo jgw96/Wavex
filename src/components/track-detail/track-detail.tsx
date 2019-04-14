@@ -174,9 +174,9 @@ export class TrackDetail {
     if (Share && !(window as any).Windows) {
       await Share.share({
         title: 'wavex',
-        text: 'Check out this song!',
+        text: 'Check out this podcast!',
         url: shareURL,
-        dialogTitle: 'Share this song'
+        dialogTitle: 'Share this podcast'
       });
     }
     else if ((window as any).Windows) {
@@ -191,7 +191,7 @@ export class TrackDetail {
         console.log(data.properties);
 
         data.properties.title = this.podcast.title;
-        data.properties.description = "Check out this song!";
+        data.properties.description = "Check out this podcast!";
         data.setUri(new (window as any).Windows.Foundation.Uri(shareURL));
       });
 
