@@ -34,7 +34,7 @@
   white-space: nowrap;
 }
 
-#info p {
+#info podcastInfoDesc {
   width: 80%;
 }
 
@@ -60,7 +60,7 @@
   font-weight: bold;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   #podContainer {
     margin-left: 15em;
   }
@@ -70,7 +70,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
   #podContainer {
     display: initial;
   }

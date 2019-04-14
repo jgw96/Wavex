@@ -75,7 +75,7 @@ export class AppRoot {
       titleBar.buttonBackgroundColor = { a: 255, r: 39, g: 39, b: 39 };
     }
 
-    if (window.matchMedia("(min-width: 1200px)").matches && this.hasSeenTutorial === true) {
+    if (window.matchMedia("(min-width: 1000px)").matches && this.hasSeenTutorial === true) {
       this.musicTitle = 'Nothing Playing'
     }
   }

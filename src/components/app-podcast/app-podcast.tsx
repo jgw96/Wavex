@@ -67,7 +67,7 @@ export class AppPodcast {
               <h3>{this.podcast.language}</h3>
               {this.podcast.explicit_content ? <h3 id="explicit">Explicit</h3> : null}
             </div>
-            <p>{this.podcast.description}</p>
+            <div id="podcastInfoDesc" innerHTML={this.podcast.description}></div>
           </section>
 
           <section id="episodes">

@@ -155,7 +155,7 @@ h1 {
   }
 }
 
-@media(min-width: 1200px) {
+@media(min-width: 1000px) {
   #containDiv {
     margin-left: 15em;
   }
@@ -165,7 +165,7 @@ h1 {
   }
 }
 
-@media(max-width: 1200px) {
+@media(max-width: 1000px) {
   header {
     flex-direction: column;
   }

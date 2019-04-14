@@ -16,7 +16,7 @@ export class AppHome {
 
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: any | null = null;
   @Prop({ connect: 'ion-router' })
-  router: any| null = null;
+  router: any | null = null;
 
   @Element() el: HTMLElement;
 
@@ -24,13 +24,14 @@ export class AppHome {
   @Event() saveEvent: EventEmitter | null = null;
 
   dropdownArrow: HTMLDivElement | null = null;
+  fakePods = [0, 1, 2, 3, 4, 5, 6 ,7 ,8]
 
   async componentDidLoad() {
     this.podcasts = await getTracks();
 
     console.log(this.podcasts);
 
-    if (window.matchMedia("(min-width: 1200px)").matches) {
+    if (window.matchMedia("(min-width: 1000px)").matches) {
       this.savedTracks = await getSaved();
 
       if (this.dropdownArrow) {
@@ -252,7 +253,7 @@ export class AppHome {
           <div id='mainDiv'>
             <ion-list>
               <ion-list-header>
-                <ion-label>Trending Podcasts</ion-label>
+                <ion-label>Podcast Lists for you</ion-label>
               </ion-list-header>
               {
                 this.podcasts ? this.podcasts.map((podcast) => {
@@ -269,16 +270,20 @@ export class AppHome {
                     </ion-card>
                   )
                 }) :
-                  <ion-card>
-                    <ion-card-header>
-                      <ion-card-subtitle><ion-skeleton-text></ion-skeleton-text></ion-card-subtitle>
-                      <ion-card-title><ion-skeleton-text></ion-skeleton-text></ion-card-title>
-                    </ion-card-header>
+                  this.fakePods.map(() => {
+                    return (
+                      <ion-card class="fakeCard">
+                        <ion-card-header>
+                          <ion-card-subtitle><ion-skeleton-text width="40%"></ion-skeleton-text></ion-card-subtitle>
+                          <ion-card-title><ion-skeleton-text width="60%"></ion-skeleton-text></ion-card-title>
+                        </ion-card-header>
 
-                    <ion-card-content>
-                      <ion-skeleton-text></ion-skeleton-text>
-                    </ion-card-content>
-                  </ion-card>
+                        <ion-card-content>
+                          <ion-skeleton-text width="80%"></ion-skeleton-text>
+                        </ion-card-content>
+                      </ion-card>
+                    )
+                  })
               }
             </ion-list>
           </div>

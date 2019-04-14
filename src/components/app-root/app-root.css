@@ -96,7 +96,7 @@ footer button {
   right: 0;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   #desktopShareButton {
     top: 4px;
   }
@@ -133,7 +133,7 @@ footer button {
   }
 }
 
-@media(min-width: 1200px) {
+@media(min-width: 1000px) {
   footer {
     position: fixed;
     bottom: initial;

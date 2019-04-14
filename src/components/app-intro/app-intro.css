@@ -33,7 +33,7 @@ ion-slides ion-slide p {
   margin-top: 2em;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   ion-slides ion-slide p {
     margin-left: 20em;
     margin-right: 20em;
